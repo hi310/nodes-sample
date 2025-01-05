@@ -1,0 +1,10 @@
+services:
+  app:
+    image: node:lts # イメージを取得
+    container_name: node # コンテナの名前を設定
+    volumes: # ディレクトリをリンク
+      - ./src:/app/src # [ホスト側]:[コンテナ内]
+    ports: # 公開用ポート設定
+      - 3000:3000 # [ホスト側]:[コンテナ内]
+    command: node server.js # コンテナ起動時に実行するコマンド
+    working_dir: /app/src # コマンドを実行するディレクトリ
